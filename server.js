@@ -5,12 +5,13 @@ const exphbs = require("express-handlebars");
 const SequelizeStore = require("connect-session-sequelize")(session.Store);
 const sequelize = require("./config/connection");
 const routes = require("./controllers");
+require("dotenv").config();
 
 const app = express();
 const PORT = process.env.PORT || 3001;
 
 const sess = {
-  secret: process.env.SESSION_SECRET,
+  secret: "secret string",
   cookie: {
     maxAge: 30 * 60 * 1000, // Session expires after 30 minutes of inactivity
   },
