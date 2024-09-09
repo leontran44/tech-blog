@@ -1,0 +1,32 @@
+[
+    {
+        "comment_text": "I can't wait to see how JavaScript evolves next!",
+        "user_id": 2,
+        "post_id": 1
+    },
+    {
+        "comment_text": "React is amazing for component-based architecture.",
+        "user_id": 3,
+        "post_id": 2
+    },
+    {
+        "comment_text": "Node.js really changed the way we think about server-side development.",
+        "user_id": 1,
+        "post_id": 3
+    },
+    {
+        "comment_text": "WebAssembly is the future for performance-critical web apps.",
+        "user_id": 3,
+        "post_id": 4
+    },
+    {
+        "comment_text": "PWAs are revolutionizing web apps. It's amazing to see the progress.",
+        "user_id": 1,
+        "post_id": 5
+    },
+    {
+        "comment_text": "TypeScript has made JavaScript so much more robust for large projects.",
+        "user_id": 2,
+        "post_id": 6
+    }
+]
