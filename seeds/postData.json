@@ -1,0 +1,32 @@
+[
+    {
+        "title": "The Future of JavaScript",
+        "content": "JavaScript continues to evolve, bringing new features and frameworks that shape the future of web development. With ECMAScript updates, the rise of frameworks like React, Vue, and Angular, and the increasing focus on web performance, JavaScript will continue to dominate as the go-to language for both front-end and back-end development. In this post, we`ll explore the latest advancements in the JavaScript ecosystem and how they impact developers.",
+        "user_id": 1
+    },
+    {
+        "title": "Why React is Still King",
+        "content": "React.js has maintained its dominance in the front-end framework space for several years now, and for good reason. Its component-based architecture allows for reusable UI components, which streamlines development and enhances maintainability. Additionally, the vibrant community and ecosystem around React—including tools like Next.js and Gatsby—make it easier than ever to build powerful, scalable applications. In this post, we'll delve into the reasons why React continues to be the framework of choice for developers worldwide.",
+        "user_id": 2
+    },
+    {
+        "title": "Getting Started with Node.js",
+        "content": "Node.js is a powerful tool for building server-side applications with JavaScript. By using Node.js, developers can create scalable network applications with high performance. From building RESTful APIs to real-time applications with WebSockets, Node.js has become an essential part of the modern web development stack. This post will guide you through the basics of Node.js, including how to set up a server, handle routing, and connect to databases.",
+        "user_id": 3
+    },
+    {
+        "title": "Exploring the World of WebAssembly",
+        "content": "WebAssembly (Wasm) is an exciting new technology that allows developers to run low-level code in the browser at near-native speed. By compiling languages like C, C++, and Rust into WebAssembly, developers can achieve better performance for tasks such as games, video editing, and other compute-intensive applications. This post introduces the basics of WebAssembly, how it works, and its potential impact on web development.",
+        "user_id": 1
+    },
+    {
+        "title": "The Rise of Progressive Web Apps (PWAs)",
+        "content": "Progressive Web Apps (PWAs) are a game-changer for web development. They offer users a native app-like experience directly in their browsers, without the need for installation from an app store. PWAs are reliable, fast, and engaging, making them an excellent choice for businesses looking to improve user engagement. This post will cover the fundamentals of PWAs, how to build one, and the benefits they offer over traditional web and native apps.",
+        "user_id": 2
+    },
+    {
+        "title": "Understanding TypeScript: JavaScript with Superpowers",
+        "content": "TypeScript is a superset of JavaScript that introduces static typing, making it easier to catch errors at compile time and improving the developer experience. TypeScript’s popularity has surged, particularly in large codebases, where its features help ensure code maintainability and scalability. This post will cover the basics of TypeScript, its benefits over vanilla JavaScript, and how to integrate it into existing projects.",
+        "user_id": 3
+    }
+]
