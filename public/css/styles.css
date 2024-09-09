@@ -1,0 +1,141 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+    color: #333;
+}
+
+main {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1, h2, h3 {
+    color: #007BFF;
+}
+
+a {
+    text-decoration: none;
+    color: #007BFF;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Navigation Styles */
+nav {
+    background-color: #007BFF;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #fff;
+}
+
+nav a {
+    color: #fff;
+    margin: 0 10px;
+}
+
+nav a:hover {
+    color: #cce5ff;
+}
+
+/* Form Styles */
+form {
+    display: flex;
+    flex-direction: column;
+    margin: 20px 0;
+}
+
+label {
+    margin: 5px 0;
+}
+
+input, textarea {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+button {
+    padding: 10px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.inline-form {
+    display: inline-block;
+}
+
+.inline-form button {
+    margin-right: 10px;
+}
+
+/* Post Styles */
+.post-preview {
+    border-bottom: 1px solid #ccc;
+    padding: 10px 0;
+}
+
+.post-preview h3 {
+    margin: 0;
+}
+
+.comment {
+    border-left: 4px solid #007BFF;
+    margin: 10px 0;
+    padding: 10px;
+    background-color: #f9f9f9;
+}
+
+/* Footer Styles */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #007BFF;
+    color: white;
+    margin-top: 20px;
+}
+
+footer p {
+    margin: 0;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+    }
+
+    main {
+        padding: 10px;
+    }
+
+    form {
+        margin: 10px 0;
+    }
+
+    button {
+        font-size: 14px;
+    }
+
+    h1, h2, h3 {
+        font-size: 1.2rem;
+    }
+}
