@@ -1,17 +1,14 @@
 [
   {
     "title": "The Future of JavaScript",
-    "content": "JavaScript continues to evolve, bringing new features and frameworks that shape the future of web development.",
-    "user_id": 1
+    "content": "JavaScript continues to evolve, bringing new features and frameworks that shape the future of web development."
   },
   {
     "title": "Why React is Still King",
-    "content": "React.js has maintained its dominance in the front-end framework space for several years now, and for good reason.",
-    "user_id": 2
+    "content": "React.js has maintained its dominance in the front-end framework space for several years now, and for good reason."
   },
   {
     "title": "Getting Started with Node.js",
-    "content": "Node.js is a powerful tool for building server-side applications with JavaScript.",
-    "user_id": 3
+    "content": "Node.js is a powerful tool for building server-side applications with JavaScript."
   }
 ]
