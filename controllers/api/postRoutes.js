@@ -17,53 +17,33 @@ router.post('/', withAuth, async (req, res) => {
 });
 
 // Get all posts
-router.get('/', async (req, res) => {
-    try {
-        const postData = await Post.findAll({
-        include: [
-            {
-            model: User,
-            attributes: ['username'],
-            },
-        ],
-        });
-
-        res.status(200).json(postData);
-    } catch (err) {
-        res.status(500).json(err);
-    }
+router.get("/", async (req, res) => {
+  try {
+    const postData = await Post.findAll({
+      include: [{ model: User }, { model: Comment }],
+    });
+    res.status(200).json(postData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
 });
 
 // Get a single post by ID
-router.get('/:id', async (req, res) => {
-    try {
-        const postData = await Post.findByPk(req.params.id, {
-        include: [
-            {
-            model: User,
-            attributes: ['username'],
-            },
-            {
-            model: Comment,
-            include: [User],
-            },
-        ],
-        });
+router.get("/:id", async (req, res) => {
+  try {
+    const postData = await Post.findByPk(req.params.id, {
+      include: [{ model: User }, { model: Comment }],
+    });
 
         if (!postData) {
         res.status(404).json({ message: 'No post found with this id' });
         return;
         }
 
-        const post = postData.get({ plain: true });
-
-        res.render('post', {
-        post,
-        logged_in: req.session.logged_in,
-        });
-    } catch (err) {
-        res.status(500).json(err);
-    }
+    res.status(200).json(postData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
 });
 
 // Update a post by ID
@@ -108,32 +88,5 @@ router.delete('/:id', withAuth, async (req, res) => {
     }
 });
 
-// Render the edit page for a specific post
-router.get('/edit/:id', withAuth, async (req, res) => {
-    try {
-        const postData = await Post.findByPk(req.params.id, {
-        include: [
-            {
-            model: User,
-            attributes: ['username'],
-            },
-        ],
-        });
-
-        if (!postData) {
-        res.status(404).json({ message: 'No post found with this id' });
-        return;
-        }
-
-        const post = postData.get({ plain: true });
-
-        res.render('editPost', {
-        post,
-        logged_in: req.session.logged_in,
-        });
-    } catch (err) {
-        res.status(500).json(err);
-    }
-});
 
 module.exports = router;
