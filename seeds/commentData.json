@@ -1,0 +1,17 @@
+[
+  {
+    "comment_text": "JavaScript is growing rapidly, can't wait to see what's next!",
+    "user_id": 2,
+    "post_id": 1
+  },
+  {
+    "comment_text": "React is a game changer for component-based architecture.",
+    "user_id": 3,
+    "post_id": 2
+  },
+  {
+    "comment_text": "Node.js is amazing for building scalable network apps.",
+    "user_id": 1,
+    "post_id": 3
+  }
+]

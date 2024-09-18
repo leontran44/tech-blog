@@ -1,0 +1,22 @@
+<h2>Latest Blog Posts</h2>
+
+{{#each posts}}
+  <div class="post-preview">
+    <h3><a href="/api/posts/{{this.id}}">{{this.title}}</a></h3>
+    <p>{{this.content}}</p>
+    <p>Posted by {{this.user.username}} on {{format_date this.createdAt}}</p>
+
+    <!-- Display comments -->
+    <h4>{{pluralize "Comment" this.comments.length}}:</h4>
+    {{#each this.comments}}
+      <div class="comment">
+        <p>{{this.comment_text}}</p>
+        <p>By {{this.user.username}} on {{format_date this.createdAt}}</p>
+      </div>
+    {{else}}
+      <p>No comments yet.</p>
+    {{/each}}
+  </div>
+{{else}}
+  <p>No posts yet! Be the first to create one!</p>
+{{/each}}
