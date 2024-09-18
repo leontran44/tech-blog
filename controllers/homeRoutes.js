@@ -29,17 +29,61 @@ router.get("/", async (req, res) => {
   }
 });
 
-// Dashboard route - Show user's posts only (requires authentication)
-router.get("/dashboard", withAuth, async (req, res) => {
+// Route to get a single post by its ID
+router.get('/post/:id', async (req, res) => {
+  try {
+    const postData = await Post.findByPk(req.params.id, {
+      include: [
+        {
+          model: User,
+          attributes: ['username'], // Include the username of the post creator
+        },
+        {
+          model: Comment,
+          include: [
+            {
+              model: User,
+              attributes: ['username'], // Include the username of the user who made the comment
+            },
+          ],
+        },
+      ],
+    });
+
+    if (!postData) {
+      res.status(404).json({ message: 'No post found with this id' });
+      return;
+    }
+
+    // Convert the Sequelize model instance to a plain JavaScript object
+    const post = postData.get({ plain: true });
+
+    // Render the 'post' template and pass the post data
+    res.render('post', {
+      post,
+      logged_in: req.session.logged_in,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+// Dashboard route - Get all posts by the logged-in user
+router.get('/dashboard', withAuth, async (req, res) => {
   try {
     const postData = await Post.findAll({
       where: { user_id: req.session.user_id },
-      include: [User],
+      include: [
+        {
+          model: User,
+          attributes: ['username'],
+        },
+      ],
     });
 
     const posts = postData.map((post) => post.get({ plain: true }));
 
-    res.render("dashboard", {
+    res.render('dashboard', {
       posts,
       logged_in: req.session.logged_in,
     });
@@ -51,7 +95,7 @@ router.get("/dashboard", withAuth, async (req, res) => {
 // Render login page (publicly accessible)
 router.get("/login", (req, res) => {
   if (req.session.logged_in) {
-    res.redirect("/");
+    res.redirect("/dashboard");
     return;
   }
   res.render("login");
@@ -60,7 +104,7 @@ router.get("/login", (req, res) => {
 // Render signup page (publicly accessible)
 router.get("/signup", (req, res) => {
   if (req.session.logged_in) {
-    res.redirect("/");
+    res.redirect("/dashboard");
     return;
   }
   res.render("signup");
