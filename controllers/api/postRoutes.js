@@ -20,12 +20,7 @@ router.post("/", withAuth, async (req, res) => {
 router.get("/", async (req, res) => {
   try {
     const postData = await Post.findAll({
-      include: [
-        {
-          model: User,
-          attributes: ["username"],
-        },
-      ],
+      include: [{ model: User }, { model: Comment }],
     });
 
     res.status(200).json(postData);
@@ -38,22 +33,19 @@ router.get("/", async (req, res) => {
 router.get("/:id", async (req, res) => {
   try {
     const postData = await Post.findByPk(req.params.id, {
-      include: [
-        {
-          model: User,
-          attributes: ["username"],
-        },
-        {
-          model: Comment,
-          include: [User],
-        },
-      ],
+      include: [{ model: User }, { model: Comment }],
     });
 
-    if (!postData) {
-      res.status(404).json({ message: "No post found with this id" });
-      return;
-    }
+        if (!postData) {
+        res.status(404).json({ message: 'No post found with this id' });
+        return;
+        }
+
+    res.status(200).json(postData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
     const post = postData.get({ plain: true });
 
