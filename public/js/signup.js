@@ -1,26 +1,30 @@
-const signupFormHandler = async (event) => {
-  event.preventDefault();
+document.querySelector('#signup-form').addEventListener('submit', async (event) => {
+  event.preventDefault(); 
 
-  const username = document.querySelector("#username-signup").value.trim();
-  const email = document.querySelector("#email-signup").value.trim();
-  const password = document.querySelector("#password-signup").value.trim();
+  const username = document.querySelector('#username').value.trim();
+  const email = document.querySelector('#email').value.trim();
+  const password = document.querySelector('#password').value.trim();
 
   if (username && email && password) {
-    const response = await fetch("/api/users/signup", {
-      method: "POST",
-      body: JSON.stringify({ username, email, password }),
-      headers: { "Content-Type": "application/json" },
-    });
+      try {
+          // Send a POST request to the signup route
+          const response = await fetch('/api/users', {
+              method: 'POST',
+              headers: {
+                  'Content-Type': 'application/json',
+              },
+              body: JSON.stringify({ username, email, password }),
+          });
 
-    if (response.ok) {
-      // Redirect to dashboard on successful signup
-      document.location.replace("/dashboard");
-    } else {
-      alert("Failed to sign up.");
-    }
+          if (response.ok) {
+              document.location.replace('/dashboard');
+          } else {
+              const result = await response.json();
+              alert(result.message || 'Failed to sign up.');
+          }
+      } catch (error) {
+          console.error('Error:', error);
+          alert('An error occurred while signing up.');
+      }
   }
-};
-
-document
-  .querySelector(".signup-form")
-  .addEventListener("submit", signupFormHandler);
+});
