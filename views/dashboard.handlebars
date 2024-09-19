@@ -11,11 +11,9 @@
                     <p class="card-text">{{this.content}}</p>
                     
                     <!-- Delete Button Only -->
+                    <!-- Delete Button -->
                     <div class="d-flex justify-content-end">
-                        <form action="/api/posts/{{this.id}}" method="POST" class="inline-form">
-                            <input type="hidden" name="_method" value="DELETE" />
-                            <button type="submit" class="btn btn-danger">Delete</button>
-                        </form>
+                        <button class="btn btn-danger delete-post-btn" data-id="{{this.id}}">Delete</button>
                     </div>
                 </div>
             </div>
@@ -40,4 +38,5 @@
 
         <button type="submit" class="btn btn-success btn-block mt-3">Add Post</button>
     </form>
+    <script src="/js/delete.js"></script>
 </div>
