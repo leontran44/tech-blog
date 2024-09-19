@@ -1,18 +1,30 @@
-<h2>Create an Account</h2>
+<div class="container my-4">
+    <h2 class="text-center mb-4">Sign Up</h2>
 
-<form class="signup-form">
-  <label for="username-signup">Username:</label>
-  <input type="text" id="username-signup" name="username" required />
+    <!-- Signup Form -->
+    <form id="signup-form" class="mx-auto" style="max-width: 400px;">
+        <div class="form-group">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" class="form-control" placeholder="Enter your username" required>
+        </div>
 
-  <label for="email-signup">Email:</label>
-  <input type="email" id="email-signup" name="email" required />
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" class="form-control" placeholder="Enter your email" required>
+        </div>
 
-  <label for="password-signup">Password:</label>
-  <input type="password" id="password-signup" name="password" required />
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" class="form-control" placeholder="Enter your password" required>
+        </div>
 
-  <button type="submit">Sign Up</button>
-</form>
+        <button type="submit" class="btn btn-primary btn-block mt-3">Sign Up</button>
+    </form>
 
-<p>Already have an account? <a href="/login">Log in here</a>.</p>
+    <p class="text-center mt-3">
+        Already have an account? <a href="/login">Login</a>
+    </p>
+</div>
 
-<script src="/js/signup.js"></script>
+<!-- Link to signup.js -->
+<script src="/public/js/signup.js"></script>

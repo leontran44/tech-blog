@@ -1,24 +1,45 @@
-<h2>{{post.title}}</h2>
-<p>{{post.content}}</p>
-<p>Posted by {{post.user.username}} on {{post.createdAt}}</p>
+<div class="container my-4">
+    <!-- Display Post Details -->
+    <div class="card mb-4">
+        <div class="card-body">
+            <h2 class="card-title">{{post.title}}</h2>
+            <p class="text-muted">By {{post.user.username}} on {{post.createdAt}}</p>
+            <p class="card-text">{{post.content}}</p>
+        </div>
+    </div>
 
-<h3>Comments:</h3>
-{{#each post.comments}}
-<div class="comment">
-    <p>{{this.comment_text}}</p>
-    <p>By {{this.user.username}} on {{this.createdAt}}</p>
+    <!-- Display Comments Section -->
+    <h3 class="mb-3">Comments</h3>
+    <div class="comments-section mb-4">
+        {{#each post.comments}}
+        <div class="card mb-2">
+            <div class="card-body">
+                <p class="card-text">{{this.comment_text}}</p>
+                <p class="text-muted">By {{this.user.username}} on {{this.createdAt}}</p>
+            </div>
+        </div>
+        {{else}}
+        <p class="text-center">No comments yet. Be the first to comment!</p>
+        {{/each}}
+    </div>
+
+    <!-- Add a Comment Form (only if user is logged in) -->
+    {{#if logged_in}}
+    {{#if logged_in}}
+    <div class="add-comment-form">
+        <h4>Add a Comment</h4>
+        <form action="/api/comments" method="POST">
+            <div class="form-group">
+                <label for="comment_text">Your Comment:</label>
+                <textarea id="comment_text" name="comment_text" class="form-control" rows="3" required></textarea>
+            </div>
+            <input type="hidden" name="post_id" value="{{post.id}}">
+            <button type="submit" class="btn btn-primary mt-2">Submit Comment</button>
+        </form>
+    </div>
+    {{else}}
+    <p class="text-center">Please <a href="/login">log in</a> to leave a comment.</p>
+    {{/if}}
+
+    <script src="/js/post.js"></script>
 </div>
-{{else}}
-<p>No comments yet. Be the first to comment!</p>
-{{/each}}
-
-{{#if logged_in}}
-<h3>Leave a Comment</h3>
-<form action="/api/comments" method="POST">
-    <textarea name="comment_text" required></textarea>
-    <input type="hidden" name="post_id" value="{{post.id}}">
-    <button type="submit">Post Comment</button>
-</form>
-{{else}}
-<p><a href="/login">Log in</a> to leave a comment.</p>
-{{/if}}
