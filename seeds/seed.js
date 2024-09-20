@@ -19,12 +19,13 @@ const seedAll = async () => {
   console.log("--- USERS SEEDED ---");
 
    // Seed Posts with random user_id assignment
-   for (const post of postData) {
+  for (const post of postData) {
     await Post.create({
       ...post,
       user_id: users[Math.floor(Math.random() * users.length)].id, // Assign random user_id
     });
   }
+  console.log("--- POSTS SEEDED ---");
 
   // Seed Comments
   await Comment.bulkCreate(commentData);
