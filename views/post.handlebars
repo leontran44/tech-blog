@@ -27,13 +27,13 @@
     {{#if logged_in}}
     <div class="add-comment-form">
         <h4>Add a Comment</h4>
-        <form action="/api/comments" method="POST">
+        <form>
             <div class="form-group">
                 <label for="comment_text">Your Comment:</label>
                 <textarea id="comment_text" name="comment_text" class="form-control" rows="3" required></textarea>
             </div>
-            <input type="hidden" name="post_id" value="{{post.id}}">
-            <button type="submit" class="btn btn-primary mt-2">Submit Comment</button>
+                <input type="hidden" name="post_id" value="{{post.id}}">
+                <button type="submit" class="btn btn-primary mt-2">Submit Comment</button>
         </form>
     </div>
     {{else}}
