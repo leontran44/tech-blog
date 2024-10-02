@@ -8,7 +8,7 @@ document.querySelector('#signup-form').addEventListener('submit', async (event) 
   if (username && email && password) {
       try {
           // Send a POST request to the signup route
-          const response = await fetch('/api/users', {
+          const response = await fetch('/api/users/signup', {
               method: 'POST',
               headers: {
                   'Content-Type': 'application/json',
